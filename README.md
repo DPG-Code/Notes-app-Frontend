@@ -1,7 +1,7 @@
 # Notes-app-Frontend 📝
 
 ### ✏ About The Project
-Api and backend for notes app.
+App for Notes.
 
 ### ✏ Built With
 - JavaScript
