@@ -1,7 +1,7 @@
 import axios from "axios"
 
-const BASE_URL = 'http://localhost:3001/api/notes'
-// const BASE_URL = '/api/notes' // Route relative
+// const BASE_URL = 'http://localhost:3001/api/notes'
+const BASE_URL = '/api/notes' // Route relative
 
 let token = null
 
