@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import noteService from './services/notes'
-import loginService from './services/login'
-import LoginForm from './components/LoginForm'
+import noteService from '../services/notes'
+import loginService from '../services/login'
+import LoginForm from '../components/LoginForm'
 import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
@@ -34,15 +34,15 @@ export default function Login() {
 
       navigate('/notes')
     } catch (error) {
-      setErrorMessage('Wrong credentials')
+      setErrorMessage('Wrong credentials!')
       setTimeout(() => {
         setErrorMessage(null)
       }, 5000);
     }
   }
 
-  if(user) return <p>User is Logged!!!</p>
-  if (errorMessage) return <p>{errorMessage}</p>
+  if(user) return <p className='error my-8 text-2xl text-black text-center'>User is Logged!!!</p>
+  if (errorMessage) return <p className='error my-8 text-2xl text-red-700 font-semibold text-center'>{errorMessage}</p>
 
   return (
     <>

@@ -1,12 +1,10 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom"
-import NoteDetail from "./components/NoteDetail"
-import Notes from './Notes'
-import Login from './Login'
 import { useUser } from './hooks/useUser'
 import { useNotes } from "./hooks/useNotes"
-
-const Home = () => <h1>Home</h1>
-const Users = () => <h1>Users</h1>
+import Notes from './Notes'
+import Home from "./Pages/Home"
+import Login from './Pages/Login'
+import NoteDetail from "./components/NoteDetail"
 
 const App = () => {
   const { notes } = useNotes()
@@ -14,14 +12,13 @@ const App = () => {
 
   return(
     <BrowserRouter>
-      <header>
-        <Link to="/">Home</Link>
-        <Link to="/notes">Notes</Link>
-        <Link to="/users">Users</Link>
+      <header className="w-full h-16 px-8 flex items-center justify-between">
+        <Link to="/" className="mr-4 text-lg border-b-2 border-neutral-300 hover:border-black">Home</Link>
+        <Link to="/notes" className="mr-auto text-lg border-b-2 border-neutral-300 hover:border-black">Notes</Link>
         {
           user
-          ? <em>{user.username}</em>
-          : <Link to="/login">Login</Link>
+          ? <p className="text-lg font-semibold">{user.username}</p>
+          : <Link to="/login" className="text-white bg-black outline outline-offset-2 outline-black outline-2 font-semibold rounded-xl text-xs px-6 py-1 text-center">Login</Link>
         }
       </header>
 
@@ -29,7 +26,6 @@ const App = () => {
         <Route path="/" element={<Home />}/>
         <Route path="/notes" element={<Notes />} />
         <Route path="/notes/:id" element={<NoteDetail notes={notes}/>} />
-        <Route path="/users" element={<Users />}/>
         <Route path="/login" element={user ? null : <Login />}/>
       </Routes>
     </BrowserRouter>

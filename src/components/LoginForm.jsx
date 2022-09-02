@@ -6,7 +6,7 @@ export default function LoginForm({ handleSubmit, handleUsernameChange, username
     <Togglable buttonLabel='Show Login'>
         <form onSubmit={handleSubmit} className="w-full flex flex-col items-center justify-center">
           <input
-            className="mb-6 border border-gray-300 text-black placeholder-gray-400 outline-none text-sm rounded-xl block w-full px-4 py-2"
+            className="mb-6 border border-gray-400 text-black placeholder-gray-400 outline-none text-sm rounded-xl block w-full px-4 py-2"
             type="text"
             onChange={handleUsernameChange}
             value={username}
@@ -14,7 +14,7 @@ export default function LoginForm({ handleSubmit, handleUsernameChange, username
             placeholder="username"
           />
           <input
-            className="mb-6 border border-gray-300 text-black placeholder-gray-400 outline-none text-sm rounded-xl block w-full px-4 py-2"
+            className="mb-6 border border-gray-400 text-black placeholder-gray-400 outline-none text-sm rounded-xl block w-full px-4 py-2"
             type="password"
             onChange={handlePasswordChange}
             value={password}

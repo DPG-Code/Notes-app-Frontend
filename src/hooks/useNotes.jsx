@@ -35,10 +35,19 @@ export const useNotes = () => {
     })
   }
 
+  const deleteOneNote = (id) => {
+    return noteService
+      .deleteNote(id)
+      .then(() => {
+        setNotes(notes.filter(note => note.id !== id))
+      })
+  }
+
   return {
     notes,
     loading,
     addNote,
-    toggleImportanceOf
+    toggleImportanceOf,
+    deleteOneNote
   }
 }

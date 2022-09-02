@@ -45,4 +45,18 @@ const update = (id, newObject) => {
       })
 }
 
-export default { getAll, create, update, setToke }
+const deleteNote = (id) => {
+    const config =  {
+    headers: {
+      Authorization: token
+    }
+  }
+
+  return axios.delete(`${BASE_URL}/${id}`, config)
+    .then((response) => {
+      const { data } = response
+      return data
+    })
+}
+
+export default { getAll, create, update, setToke, deleteNote }
