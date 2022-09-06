@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 
-const colors = ["red-500", "green-500", "violet-500", "cyan-500", "yellow-300"]
+const colors = ["red-bg", "green-bg", "violet-bg", "cyan-bg", "yellow-bg"]
+const colorsOutline = ["red-outline", "green-outline", "violet-outline", "cyan-outline", "yellow-outline"]
 
 export default function NoteDetail({ notes }) {
   const { id } = useParams()
@@ -8,9 +9,45 @@ export default function NoteDetail({ notes }) {
   if(!note) return null
 
   const dateFormat = note.date.slice(0, 10)
-  const colorIndex = Number(note.color) - 1
-  const colorBackground = `bg-${colors[colorIndex]}`
-  const colorOutline = `outline-${colors[colorIndex]}`
+  
+  let colorBackground;
+  let colorOutline;
+
+  switch (note.color) {
+    case "0":
+      colorBackground = colors[0]
+      break;
+    case "1":
+      colorBackground = colors[1]
+      break;
+    case "2":
+      colorBackground = colors[2]
+      break;
+    case "3":
+      colorBackground = colors[3]
+      break;
+    default:
+      colorBackground = colors[4]
+      break;
+  }
+
+  switch (note.color) {
+    case "0":
+      colorOutline = colorsOutline[0]
+      break;
+    case "1":
+      colorOutline = colorsOutline[1]
+      break;
+    case "2":
+      colorOutline = colorsOutline[2]
+      break;
+    case "3":
+      colorOutline = colorsOutline[3]
+      break;
+    default:
+      colorOutline = colorsOutline[4]
+      break;
+  }
 
   return (
     <div className="px-8 w-full h-full absolute flex">

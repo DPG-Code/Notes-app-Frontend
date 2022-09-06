@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const colors = ["red-500", "green-500", "violet-500", "cyan-500", "yellow-300"]
+const colors = ["red-bg", "green-bg", "violet-bg", "cyan-bg", "yellow-bg"]
 
 export default function Note({ content, important, id, date, color, toggleImportance, deleteNote}) {
   const label = important
@@ -12,11 +12,29 @@ export default function Note({ content, important, id, date, color, toggleImport
     </svg>
 
   const dateFormat = date.slice(0, 10)
-  const colorIndex = Number(color) - 1
-  const colorBackground = `bg-${colors[colorIndex]}`
+
+  let colorBackground;
+
+  switch (color) {
+    case "0":
+      colorBackground = colors[0]
+      break;
+    case "1":
+      colorBackground = colors[1]
+      break;
+    case "2":
+      colorBackground = colors[2]
+      break;
+    case "3":
+      colorBackground = colors[3]
+      break;
+    default:
+      colorBackground = colors[4]
+      break;
+  }
 
   return (
-      <li className={`p-6 w-72 h-44 rounded-2xl ${colorBackground} flex flex-col items-start justify-between`}>
+      <li className={`${colorBackground} p-6 w-72 h-44 rounded-2xl flex flex-col items-start justify-between`}>
         <Link to={`/notes/${id}`} className={`w-full flex flex-col items-start justify-start`}>
             <p className="mb-2 w-full overflow-hidden text-ellipsis whitespace-nowrap text-2xl font-bold">{content}</p>
             <p>{dateFormat}</p>

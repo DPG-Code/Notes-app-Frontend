@@ -40,6 +40,8 @@ export default function Notes() {
     ? notes
     : notes.filter(note => note.important === true)
 
+  console.log(notesToShow)
+
   const NotesToRender = () => {
     return ( loading
       ? <Loader />

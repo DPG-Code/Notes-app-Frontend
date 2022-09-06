@@ -11,3 +11,37 @@
 .background{
   background-image: url(./images/background-black.webp);
 }
+
+/*const colors = ["red-500", "green-500", "violet-500", "cyan-500", "yellow-300"]*/
+
+.red-bg{
+  background-color: rgb(239 68 68);
+}
+.green-bg{
+  background-color: rgb(34 197 94);
+}
+.violet-bg{
+  background-color: rgb(139 92 246);
+}
+.cyan-bg{
+  background-color: rgb(6 182 212);
+}
+.yellow-bg{
+  background-color: rgb(253 224 71);
+}
+
+.red-outline{
+  outline-color: rgb(239 68 68);
+}
+.green-outline{
+  outline-color: rgb(34 197 94);
+}
+.violet-outline{
+  outline-color: rgb(139 92 246);
+}
+.cyan-outline{
+  outline-color: rgb(6 182 212);
+}
+.yellow-outline{
+  outline-color: rgb(253 224 71);
+}
