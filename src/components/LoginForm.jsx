@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export default function LoginForm({ handleSubmit, handleUsernameChange, username, handlePasswordChange, password }) {
   return (
     <Togglable buttonLabel='Show Login'>
-        <form onSubmit={handleSubmit} className="w-full flex flex-col items-center justify-center">
+        <form onSubmit={handleSubmit} className="mt-14 w-full flex flex-col items-center justify-center">
           <input
             className="mb-6 border border-gray-400 text-black placeholder-gray-400 outline-none text-sm rounded-xl block w-full px-4 py-2"
             type="text"

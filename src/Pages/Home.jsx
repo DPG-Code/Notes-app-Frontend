@@ -1,5 +1,10 @@
 export default function Home() {
   return (
-    <h1 className="my-12 text-7xl font-semibold text-center">APP NOTES</h1>
+    <div className="w-screen h-screen flex">
+      <h1 className="z-10 m-auto bg-white text-black text-7xl font-semibold text-center">
+        NOTE APP
+      </h1>
+      <div className="background z-0 w-full h-full absolute object-cover"></div>
+    </div>
   )
 }

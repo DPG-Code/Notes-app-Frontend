@@ -12,13 +12,13 @@ const App = () => {
 
   return(
     <BrowserRouter>
-      <header className="w-full h-16 px-8 flex items-center justify-between">
-        <Link to="/" className="mr-4 text-lg border-b-2 border-neutral-300 hover:border-black">Home</Link>
-        <Link to="/notes" className="mr-auto text-lg border-b-2 border-neutral-300 hover:border-black">Notes</Link>
+      <header className="z-50 w-full h-16 bg-white px-4 flex items-center justify-between absolute top-0   sm:px-8">
+        <Link to="/" className="mr-4 text-base border-b-2 text-black border-transparent font-semibold hover:border-black   sm:text-lg">Home</Link>
+        <Link to="/notes" className="mr-auto text-base border-b-2 text-black border-transparent font-semibold hover:border-black   sm:text-lg">Notes</Link>
         {
           user
-          ? <p className="text-lg font-semibold">{user.username}</p>
-          : <Link to="/login" className="text-white bg-black outline outline-offset-2 outline-black outline-2 font-semibold rounded-xl text-xs px-6 py-1 text-center">Login</Link>
+          ? <p className="text-base font-semibold text-black   sm:text-lg">{user.username}</p>
+          : <Link to="/login" className="text-white bg-black outline outline-offset-2 outline-black outline-2 font-bold rounded-xl text-xs px-6 py-1 text-center">Login</Link>
         }
       </header>
 
