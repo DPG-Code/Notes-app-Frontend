@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 
-export default function LoginForm({ handleSubmit, handleUsernameChange, username, handlePasswordChange, password }) {
+export default function SignUpForm({ handleSubmit, handleUsernameChange, username, handleNameChange, name, handlePasswordChange, password }) {
   const [showPassword, setShowPassword] = useState(false)
 
   const iconPassword = showPassword
@@ -15,7 +15,7 @@ export default function LoginForm({ handleSubmit, handleUsernameChange, username
   
   return (
     <main className='Login pt-16 w-full h-auto min-h-screen flex flex-col items-center justify-start   xl:pt-32'>
-        <h2 className='FontSemibold my-6 w-[400px] text-[#D5BAFE] text-5xl text-left   xl:my-10 xl:text-7xl xl:w-[700px]'>Sign in</h2>
+        <h2 className='FontSemibold my-6 w-[400px] text-[#F2F2F2] text-5xl text-left   xl:my-10 xl:text-7xl xl:w-[700px]'>Sign up</h2>
         <form onSubmit={handleSubmit} className="w-[400px] flex flex-col items-center justify-center   xl:w-[700px]">
           <input
             className="mb-6 bg-[#1D1C218c] border-2 border-[#F2F2F2] text-[#F2F2F2] placeholder-[#F2F2F2ec] outline-none text-sm rounded-2xl block w-full px-4 py-2   xl:text-lg xl:rounded-4xl xl:px-5 xl:py-3"
@@ -24,6 +24,16 @@ export default function LoginForm({ handleSubmit, handleUsernameChange, username
             value={username}
             name="username"
             placeholder="username"
+            required
+          />
+          <input
+            className="mb-6 bg-[#1D1C218c] border-2 border-[#F2F2F2] text-[#F2F2F2] placeholder-[#F2F2F2ec] outline-none text-sm rounded-2xl block w-full px-4 py-2   xl:text-lg xl:rounded-4xl xl:px-5 xl:py-3"
+            type="text"
+            onChange={handleNameChange}
+            value={name}
+            name="name"
+            placeholder="name"
+            required
           />
           <div className='w-full flex items-center relative'>
             <input
@@ -33,6 +43,7 @@ export default function LoginForm({ handleSubmit, handleUsernameChange, username
               value={password}
               name="password"
               placeholder="password"
+              required
             />
             <button
               className='absolute right-4'
@@ -45,11 +56,11 @@ export default function LoginForm({ handleSubmit, handleUsernameChange, username
           <button
             type='submit'
             id='form-login-button'
-            className="FontSemibold mt-6 text-[#1D1C21] bg-[#D5BAFE] border-2 border-[#D5BAFE] rounded-2xl text-sm px-6 py-1 text-center flex items-center justify-center gap-1   xl:text-xl xl:rounded-3xl"
+            className="FontSemibold mt-6 text-[#1D1C21] bg-[#F2F2F2] border-2 border-[#F2F2F2] rounded-2xl text-sm px-6 py-1 text-center flex items-center justify-center gap-1   xl:text-xl xl:rounded-3xl"
           >
-            Login
+            Sign up
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="#1D1C21" className="w-4 h-4   xl:w-7 xl:h7">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
             </svg>
           </button>
         </form>
@@ -57,7 +68,7 @@ export default function LoginForm({ handleSubmit, handleUsernameChange, username
   )
 }
 
-LoginForm.propTypes = {
+SignUpForm.propTypes = {
   handleSubmit: PropTypes.func,
   handleUsernameChange: PropTypes.func,
   handlePasswordChange: PropTypes.func,

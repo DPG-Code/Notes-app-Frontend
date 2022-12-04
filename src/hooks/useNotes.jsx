@@ -4,16 +4,16 @@ import noteService from '../services/notes'
 export const useNotes = () => {
   const [notes, setNotes] = useState([])
   const [loading, setLoading] = useState(false)
-
+  
   useEffect(() => {
     setLoading(true)
     noteService
       .getAll()
       .then((notes) => {
-        setNotes(notes)
-        setLoading(false)
+          setNotes(notes)
+          setLoading(false)
         }
-      )
+        )
   }, [])
 
   const addNote = (noteAdd) => {
@@ -22,6 +22,7 @@ export const useNotes = () => {
       .then((newNote) => {
         setNotes((prevNotes => [...prevNotes, newNote]))
       })
+    location.reload()
   }
 
   const toggleImportanceOf = (id) => {

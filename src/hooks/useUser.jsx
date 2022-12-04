@@ -31,9 +31,11 @@ export const useUser = () => {
   }
 
   const logout = () => {
+    location.reload()
     setUser(null)
     noteService.setToke(user.token)
     window.localStorage.removeItem('loggedNotAppUser')
+    window.localStorage.removeItem('usernameNotAppUser')
   }
 
   return {

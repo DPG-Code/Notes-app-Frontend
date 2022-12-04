@@ -1,5 +1,4 @@
 import { useState, forwardRef, useImperativeHandle } from "react"
-import PropTypes from 'prop-types'
 
 const Togglable = forwardRef(({ children, buttonLabel = 'Show' }, ref ) => {
   const [visible, setVisible] = useState(false)
@@ -16,32 +15,44 @@ const Togglable = forwardRef(({ children, buttonLabel = 'Show' }, ref ) => {
   })
 
   return (
-    <div className="my-20 w-full flex items-center justify-center">
-      <div style={hidWhenVisible} className="w-full flex items-center justify-center">
+    <main className={
+      hidWhenVisible.display === '' 
+        ? 'modal ml-auto mt-auto w-[52px] flex sticky bottom-6 right-6   sm:bottom-12 sm:right-24   2xl:right-36'
+        : 'modal w-full h-full bg-[#1d1c21dc] flex absolute'
+      }
+    >
+      <section style={hidWhenVisible} className="flex items-center justify-center">
         <button
           onClick={toggleVisibility}
-          className="outline outline-offset-2 outline-black outline-2 bg-black text-white font-semibold rounded-xl text-sm px-6 py-1 text-center"
+          className="shadow-button m-0 p-3 text-[#1D1C21] bg-[#F2F2F2] rounded-full   xl:p-4"
         >
-          { buttonLabel }
+          { buttonLabel === 'New Note'
+              ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="#1D1C21" className="w-7 h-7   xl:w-12 xl:h-12">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              : buttonLabel
+          }
         </button>
-      </div>
+      </section>
 
-      <div style={showWhenVisible} className="w-72 flex flex-col items-center justify-center">
-        { children }
-        <button
-          onClick={toggleVisibility}
-          className="text-neutral-600 font-normal rounded-lg text-sm w-full sm:w-auto text-center"
-        >
-          Cancel
-        </button>
-      </div>
-    </div>
+      <section
+        style={showWhenVisible}
+        className="w-full h-full flex items-start justify-center"
+      >
+        <div className="mt-36 p-8 w-[400px] bg-[#2E2C33] rounded-2xl flex flex-col items-center justify-center">
+          { children }
+          <button
+            onClick={toggleVisibility}
+            className="FontThin text-[#CECCCC] text-sm sm:w-auto text-center"
+          >
+            Cancel
+          </button>
+        </div>
+      </section>
+    </main>
   )
 })
 
 Togglable.displayName = 'Togglable'
-Togglable.propTypes = {
-  buttonLabel: PropTypes.string
-}
 
 export default Togglable

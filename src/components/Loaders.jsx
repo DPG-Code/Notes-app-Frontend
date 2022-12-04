@@ -1,8 +1,8 @@
 export default function Loader() {
   return (
-    <div className="mt-10 w-full flex">
-      <div className="animate-spin m-auto w-10 h-10 bg-white border-solid border-4 border-black">
-      </div>
+    <div className="mt-10 w-full flex flex-col items-center justify-center">
+      <div className="loader mb-2"></div>
+      <p className="FontThin text-[#F2F2F2]">Loading...</p>
     </div>
   )
 }

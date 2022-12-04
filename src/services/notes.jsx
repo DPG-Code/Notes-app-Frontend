@@ -1,7 +1,7 @@
 import axios from "axios"
 
-// const BASE_URL = 'http://localhost:3001/api/notes'
-const BASE_URL = '/api/notes' // Route relative
+const BASE_URL = 'http://localhost:3001/api/notes'
+// const BASE_URL = '/api/notes' // Route relative
 
 let token = null
 
@@ -9,12 +9,17 @@ const setToke = newToken => {
   token = `Bearer ${newToken}`
 }
 
+const userLogged = window.localStorage.getItem('usernameNotAppUser')
+
 const getAll = () => {
   return axios.get(BASE_URL)
-    .then((response) => {
+  .then((response) => {
       const { data } = response
-        return data
-      })
+      const notesFilterByUser = userLogged
+        ? data.filter(note => note.user.username === userLogged)
+        : []
+      return notesFilterByUser
+    })
 }
 
 const create = (newObject) => {
