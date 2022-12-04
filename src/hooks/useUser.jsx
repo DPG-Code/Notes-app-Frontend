@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react"
 import noteService from '../services/notes'
 import loginService from '../services/login'
+import { useNavigate } from 'react-router-dom'
 
 export const useUser = () => {
   const [user, setUser] = useState(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const loggedJSON = window.localStorage.getItem('loggedNotAppUser')
@@ -31,6 +33,7 @@ export const useUser = () => {
   }
 
   const logout = () => {
+    navigate('/')
     location.reload()
     setUser(null)
     noteService.setToke(user.token)

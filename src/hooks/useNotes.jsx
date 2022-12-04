@@ -22,7 +22,6 @@ export const useNotes = () => {
       .then((newNote) => {
         setNotes((prevNotes => [...prevNotes, newNote]))
       })
-    location.reload()
   }
 
   const toggleImportanceOf = (id) => {

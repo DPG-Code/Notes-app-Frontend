@@ -35,7 +35,7 @@ export default function Login() {
       setUsername('')
       setPassword('')
 
-      navigate('/notes')
+      navigate('/')
       location.reload()
     } catch (error) {
       setErrorMessage('Wrong credentials!')

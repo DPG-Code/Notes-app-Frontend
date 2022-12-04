@@ -28,7 +28,7 @@ export default function SignUp() {
       setName('')
       setPassword('')
 
-      navigate('/login')
+      navigate('/')
     } catch (error) {
       setErrorMessage('User is already created!')
       setTimeout(() => {
